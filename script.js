@@ -3,7 +3,7 @@ window.onload = function() {
       const tbody = document.getElementsByTagName("tbody")[0];
       tbody.innerHTML  = '';
       var sum = parseInt(credit_sum.value);
-      var rate = parseInt(credit_rate.value);
+      var rate = parseFloat(credit_rate.value);
       rate = rate / 100; // Проценты
       var term = parseInt(credit_term.value); // Месяцы
 
