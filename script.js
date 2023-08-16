@@ -2,10 +2,10 @@ window.onload = function() {
     calc_btn.onclick = function() {
       const tbody = document.getElementsByTagName("tbody")[0];
       tbody.innerHTML  = '';
-      var sum = parseInt(credit_sum.value);
-      var rate = parseFloat(credit_rate.value);
+      let sum = parseInt(credit_sum.value);
+      let rate = parseFloat(credit_rate.value);
       rate = rate / 100; // Проценты
-      var term = parseInt(credit_term.value); // Месяцы
+      let term = parseInt(credit_term.value); // Месяцы
 
       let mainPayment = Number((sum / term).toFixed(2)); // Основной платеж
       
@@ -13,15 +13,15 @@ window.onload = function() {
       console.log(`Main payment - ${mainPayment}`);
       
       
-      for (var i = 1; i <= term; i++) {
+      for (let i = 1; i <= term; i++) {
 
-        var payment = (mainPayment) + (sum * rate / 12); // Дифф.платеж
+        let payment = (mainPayment) + (sum * rate / 12); // Дифф.платеж
 
-        var percents = payment - mainPayment; // Проценты банку
+        let percents = payment - mainPayment; // Проценты банку
         sum -= mainPayment;
         if(i == term){sum = 0;}
         console.log(`Остаток суммы - ${sum}`);
-        var body = mainPayment;
+        let body = mainPayment;
         
         sum < 0 ? 0 : sum;
         addRow(i, payment, body, percents, sum);
@@ -30,14 +30,14 @@ window.onload = function() {
       }
     };
   
-    var addRow = function (i, payment, body, percents, sum){
-      var tbody = document.getElementsByTagName("tbody")[0];
-      var tr = document.createElement("tr");
-      var td = document.createElement("td");
-      var td2 = document.createElement("td");
-      var td3 = document.createElement("td");
-      var td4 = document.createElement("td");
-      var td5 = document.createElement("td");
+    let addRow = function (i, payment, body, percents, sum){
+      let tbody = document.getElementsByTagName("tbody")[0];
+      let tr = document.createElement("tr");
+      let td = document.createElement("td");
+      let td2 = document.createElement("td");
+      let td3 = document.createElement("td");
+      let td4 = document.createElement("td");
+      let td5 = document.createElement("td");
       
       td.appendChild(document.createTextNode(i));
       td2.appendChild(document.createTextNode(payment.toFixed(2)));
